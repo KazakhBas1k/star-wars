@@ -23,6 +23,10 @@
     margin: 0 auto;
 }
 
+.burger__btn {
+    display: none;
+}
+
 .header {
     .header__container {
         display: flex;
@@ -37,8 +41,8 @@
 
         .nav__list {
             display: flex;
-            justify-content: space-between;
             column-gap: 100px;
+            transition: all .3s ease;
 
             .nav__link {
                 border: none;
@@ -72,25 +76,26 @@
 }
 
 h1 {
-    margin-bottom: 50px;
+    margin-bottom: 70px;
 }
 
 .Slider {
+    position: relative;
+    display: flex;
+    justify-content: center;
 
     .arrow {
         position: absolute;
         width: 40px;
         height: 40px;
         display: flex;
+        top: -60px;
         justify-content: center;
         padding-top: 14.5px;
-
-
         cursor: pointer;
         border: 2px solid black;
         border-radius: 25px;
         background: rgba($color: #000000, $alpha: 0);
-
         font-size: 30px;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
@@ -100,14 +105,16 @@ h1 {
     }
 
     .arrow:nth-child(1) {
-        left: 20px;
+        left: 0;
         transform: rotate(180deg);
     }
 
     .arrow:nth-child(2) {
-        right: 20px;
+        right: 0;
     }
 }
+
+
 
 .cards__container {
     overflow: hidden;
@@ -173,4 +180,104 @@ h1 {
 
 .CardInfo:hover {
     transition: all .2s ease;
+}
+
+@media (max-width: 880px) {
+    body {
+        overflow: hidden;
+    }
+
+    .nav__list {
+        position: absolute;
+        top: -100%;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: yellow;
+        z-index: 1;
+        display: flex;
+        flex-direction: column; 
+        gap: 10px;
+        padding: 20px;
+        transition: all .3s ease;
+
+        .nav__link {
+            font-size: 40px;
+        }
+    }
+
+    .nav__list.active {
+        top: 0;
+    }
+
+    .search {
+        position: absolute;
+        top: 135px;
+        right: 20px;
+        
+    }
+
+    .burger__btn {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        div {
+            width: 25px;
+            height: 2px;
+            background: #000;
+            transition: all .3s ease;
+        }
+    }
+
+    .burger__btn.active {
+        z-index: 2;
+        position: absolute;
+        right: 20px;
+
+        div:nth-child(1) {
+            display: none;
+        }
+
+        div:nth-child(2) {
+            transition: all .3s ease;
+            position: absolute;
+            right: 0;
+            transform: rotate(45deg);
+        }
+
+        div:nth-child(3) {
+            transition: all .3s ease;
+            position: absolute;
+            right: 0;
+            transform: rotate(-45deg)
+        }
+
+    }
+}
+
+@media (max-width: 580px) {
+    .search {
+        right: auto;
+        left: 20px;
+        top: 88px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .cards__container {
+        width: 910px;
+    }
+}
+
+@media (max-width: 990px) {
+    .cards__container {
+        width: 600px;
+    }
+}
+
+@media (max-width: 680px) {
+    .cards__container {
+        width: 290px;
+    }
 }

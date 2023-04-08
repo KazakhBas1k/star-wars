@@ -13,6 +13,7 @@ function App() {
   const slider = useRef(null);
   const [position, setPosition] = useState();
   const [searchValue, setSearchValue] = useState('')
+  const [active, setActive] = useState(false)
 
   useEffect(() => {
     async function fetchData() {
@@ -60,7 +61,7 @@ function App() {
           <div className="header__container">
             <div className="logo">S</div>
             <nav className="nav">
-              <ul className="nav__list">
+              <ul className={active ? "nav__list active" : "nav__list"}>
                 <li>
                   <button onClick={chooseSection} className="nav__link">
                     Characters
@@ -87,6 +88,16 @@ function App() {
                 type="search"
                 placeholder="search..."
               />
+            </div>
+            <div
+              className={active ? "burger__btn active" : "burger__btn"}
+              onClick={() => {
+                active ? setActive(false) : setActive(true);
+              }}
+            >
+              <div></div>
+              <div></div>
+              <div></div>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import CardInfo from "./CardInfo";
 
 function Cards({ item }) {
   const { title, position } = useContext(SliderContext);
-  const imgSrc = `./img/${title}/${item.url.replace(/[^+\d]/g, "")}.jpg`;
+  const imgSrc = `./img/${title.toLowerCase()}/${item.name}.jpg`;
   const [active, setActive] = useState(false);
   useEffect(() => {
     setActive(false);
