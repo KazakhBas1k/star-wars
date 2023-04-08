@@ -1,0 +1,176 @@
+@font-face {
+    font-family: 'Star Jedi';
+    src: url(./fonts/star-jedi/star-jedi.ttf);
+}
+@font-face {
+    font-family: 'Star Kit';
+    src: url(./fonts/star-wars-kit/StarwarsKit-MeeP.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+    font-family: 'Star Jedi', arial;
+    color: #000;
+}
+
+.container {
+    max-width: 1280px;
+    padding: 0 30px;
+    margin: 0 auto;
+}
+
+.header {
+    .header__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 35px;
+
+        .logo {
+            font-family: 'Star Kit';
+            font-size: 50px;
+        }
+
+        .nav__list {
+            display: flex;
+            justify-content: space-between;
+            column-gap: 100px;
+
+            .nav__link {
+                border: none;
+                background: rgba($color: #000000, $alpha: 0);
+                cursor: pointer;
+            }
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+            column-gap: 7px;
+            border-radius: 15px;
+            padding: 10px;
+            background: yellow;
+
+            .input {
+                background: rgba($color: #000000, $alpha: 0);
+                border: none;
+            }
+            
+            .input:focus {
+                outline: 0;
+            }
+        }
+    }
+}
+
+.main {
+    margin: 50px 0;
+}
+
+h1 {
+    margin-bottom: 50px;
+}
+
+.Slider {
+
+    .arrow {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        padding-top: 14.5px;
+
+
+        cursor: pointer;
+        border: 2px solid black;
+        border-radius: 25px;
+        background: rgba($color: #000000, $alpha: 0);
+
+        font-size: 30px;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        img {
+            display: flex;
+        }
+    }
+
+    .arrow:nth-child(1) {
+        left: 20px;
+        transform: rotate(180deg);
+    }
+
+    .arrow:nth-child(2) {
+        right: 20px;
+    }
+}
+
+.cards__container {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .cards {
+        transition: all 0.3s ease; 
+        transform: translateX(0);
+
+        .card__item {
+            background: gray;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all .2s ease;
+            width: 290px;
+            height: 455px;
+        
+            img {
+                width: 100%;
+                height: 90%;
+                object-position: center;
+                object-fit: cover;
+                border-top-right-radius: 15px;
+                border-top-left-radius: 15px;
+            }
+
+            p {
+                z-index: 1;
+                padding: 10px;
+                text-align: center;
+                font-size: 15px;
+            }
+        }
+
+        .card__item:hover {
+            transition: all .2s ease;
+            box-shadow: 0 0 2px 2px rgba(0,0,0,0.2);
+        }
+    }
+}
+
+.CardInfo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0);
+    cursor: pointer;
+    transition: all .2s ease;
+    width: 101%;
+    height: 101%;
+    background: yellow;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.CardInfo.active {
+    transform: scale(1);
+}
+
+.CardInfo:hover {
+    transition: all .2s ease;
+}
