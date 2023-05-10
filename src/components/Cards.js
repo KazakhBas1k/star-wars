@@ -6,6 +6,7 @@ function Cards({ item }) {
   const { title, position } = useContext(SliderContext);
   const imgSrc = `./img/${title.toLowerCase()}/${item.name}.jpg`;
   const [active, setActive] = useState(false);
+  console.log(active)
   useEffect(() => {
     setActive(false);
   }, [title]);

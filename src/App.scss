@@ -183,9 +183,6 @@ h1 {
 }
 
 @media (max-width: 880px) {
-    body {
-        overflow: hidden;
-    }
 
     .nav__list {
         position: absolute;
@@ -208,6 +205,8 @@ h1 {
 
     .nav__list.active {
         top: 0;
+        position: fixed;
+        overflow: hidden;
     }
 
     .search {

@@ -48,6 +48,7 @@ function App() {
         setTitle("Starships");
         break;
     }
+    setActive(false)
   }
 
   const onChangeSearchInput = (event) => {
